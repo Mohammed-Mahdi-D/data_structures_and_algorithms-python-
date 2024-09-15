@@ -22,6 +22,10 @@ class BST():
                     self.right = BST(data)
 
     def build_tree(elements):
+        root = BST(elements[0])
+        for element in elements[1:]:
+            root.add_child(element)
+        return root
 
         return None
 
