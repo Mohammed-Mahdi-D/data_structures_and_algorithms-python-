@@ -86,11 +86,36 @@ class BST:
             else:
                 return False
 
+    
+    def find_min(self):
+        while self.left:
+            self = self.left
+        return self.data
+
+    
+    def find_max(self):
+        while self.right:
+            self = self.right
+        return self.data
+
+
     def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        else:
+            if self.left is None and self.right is None:
+                return None
+            if self.left is None and self.right:
+                return self.right
+            if self.right is None and self.left:
+                return self.left
+            #both
+            max_val = self.left.find_max()
+            self.data = max_val
+            self.left = self.left.delete(max_val)
                 
-        return None
-
-
-
-t = BST.build_tree([39, 3, 22, 5, 199, 4]) # type: ignore 
-print(t.in_order_traversal())
+        return self
