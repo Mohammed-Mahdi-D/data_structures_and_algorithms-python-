@@ -137,3 +137,4 @@ class BST:
             else:
                 return None
 
+# t = BST.build_tree([39, 3, 22, 5, 199, 4]) 
