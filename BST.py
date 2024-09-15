@@ -42,7 +42,7 @@ class BST():
 
         return None
     
-    def search(self, val):
+    def search(self, val): # only check the existance return true/false
         if self.data == val:
             return True
         
