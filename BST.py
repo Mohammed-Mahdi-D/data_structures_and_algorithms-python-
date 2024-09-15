@@ -5,8 +5,21 @@ class BST():
         self.left = None
 
     def add_child(self, data):
-        # /////////
-        return None
+        if data == self.data:
+            return 
+        else:
+            if data < self.data:
+                if self.left:
+                    self.left.add_child(data)
+                else:
+                    self.left = BST(data)
+
+            if data > self.data:
+                if self.right:
+                    self.right.add_child(data)
+
+                else:
+                    self.right = BST(data)
 
     def build_tree(elements):
 
