@@ -70,7 +70,7 @@ class BST:
         return elements
 
 
-    def search(self, val):
+    def search(self, val): # check existance of val in the tree
         if self.data == val:
             return True
         
@@ -119,3 +119,21 @@ class BST:
             self.left = self.left.delete(max_val)
                 
         return self
+
+
+    def _get_node(self, val): # return the node with val
+        if self.data == val:
+            return self
+        
+        if val < self.data:
+            if self.left:
+                return self.left._get_node(val)
+            else:
+                return None
+        
+        if val > self.data:
+            if self.right:
+                return self.right._get_node(val)
+            else:
+                return None
+
