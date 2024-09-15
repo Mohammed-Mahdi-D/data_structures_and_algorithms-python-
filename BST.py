@@ -1,8 +1,9 @@
-class BST():
-    def __inti__(self, data):
-        self.data = data
+class BST:
+    def __init__(self, data):  
+        self.data = data 
         self.right = None
         self.left = None
+
 
     def add_child(self, data):
         if data == self.data:
@@ -21,28 +22,55 @@ class BST():
                 else:
                     self.right = BST(data)
 
+
     def build_tree(elements):
         root = BST(elements[0])
         for element in elements[1:]:
             root.add_child(element)
         return root
 
-        return None
-
 
     def in_order_traversal(self):
+        elements = []
 
-        return None
+        if self.left:
+            elements += self.left.in_order_traversal()
+
+        
+        elements.append(self.data)
+
+        if self.right:
+            elements += self.right.in_order_traversal()        
+
+        return elements
+
 
     def pre_order_traversal(self):
+        elements = [self.data]
 
-        return None
-    
+
+        if self.left:
+            elements += self.left.pre_order_traversal()
+
+        if self.right:
+            elements += self.right.pre_order_traversal()        
+
+        return elements
+
+
     def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
+        
+        if self.right:
+            elements += self.right.post_order_traversal()
+        
+        elements.append(self.data)
+        return elements
 
-        return None
-    
-    def search(self, val): # only check the existance return true/false
+
+    def search(self, val):
         if self.data == val:
             return True
         
@@ -59,5 +87,10 @@ class BST():
                 return False
 
     def delete(self, val):
-
+                
         return None
+
+
+
+t = BST.build_tree([39, 3, 22, 5, 199, 4]) # type: ignore 
+print(t.in_order_traversal())
