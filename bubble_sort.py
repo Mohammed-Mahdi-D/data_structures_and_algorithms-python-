@@ -32,3 +32,13 @@ def bubble_sort_by(elements, key):
             break
     return elements
 
+
+# ******** example **********
+# friends = [{"name": "person1","age": 17,"score": 100},
+#            {"name": "person2","age": 18,"score": 99},
+#            {"name": "person0","age": 20,"score": 95},
+#            {"name": "person3","age": 18,"score": 85}]
+
+
+# bubble_sort_by(friends, "name")
+# print(friends)    
