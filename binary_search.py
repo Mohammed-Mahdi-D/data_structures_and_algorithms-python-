@@ -38,3 +38,27 @@ def binary_search_recursive(elements, element, rp=None, lp=0):
     
     return binary_search_recursive(elements, element, rp, lp)
 
+
+def binary_search_duplicates(elements, element):
+    index = binary_search(elements, element)
+    duplicates = []
+    i = index - 1
+    while i >= 0:
+        if elements[i] == element:
+            duplicates.append(i)
+            i -= 1
+        else:
+            break
+
+    duplicates.append(index)
+    i = index + 1
+    while i < len(elements):
+        if elements[i] == element:
+            duplicates.append(i)
+            i += 1
+        else:
+            break
+
+    duplicates.sort()
+    return duplicates
+        
