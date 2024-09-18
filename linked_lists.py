@@ -46,5 +46,23 @@ class LinkedList:
                 itr = itr.next
                 index += 1
                 
+    def remove(self, index):
+        if index == 0:
+            self.head = self.head.next
+            return
+        if index<0 or index>self.len():
+            raise Exception("Invalide Index")
 
+        n = 1
+        itr = self.head
+        while itr:
+            if n == index:
+                itr.next = itr.next.next
+                break
+            itr = itr.next 
+            n += 1
+
+        
+
+                
 
