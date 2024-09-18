@@ -62,7 +62,13 @@ class LinkedList:
             itr = itr.next 
             n += 1
 
-        
+    def len(self):
+        itr = self.head
+        len = 0
+        while itr:
+            len += 1
+            itr = itr.next
+        return len
 
                 
 
