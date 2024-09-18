@@ -70,5 +70,15 @@ class LinkedList:
             itr = itr.next
         return len
 
+    def get_node_at(self, num):
+        try: 
+            if self.head != None:
+                itr = self.head
+                for _ in range(num):
+                    itr = itr.next
+                return itr.getnode()
+        except AttributeError:
+            raise Exception("Node does not exist")
+
                 
 
